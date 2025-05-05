@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paws & Whiskers - Shop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #6dd2f1;
+      color: white;
+    }
+
+    .navbar-logo a {
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .navbar-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .shop-hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to right, #ffffff, #158fdb);
+      color: white;
+    }
+
+    .shop-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .shop-hero p {
+      font-size: 1.2rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-card h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .product-card p {
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .product-card button {
+      padding: 0.6rem 1.2rem;
+      background-color: #13b0ff;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background-color: #d97706;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <a href="index.html">Paws & Whiskers</a>
+    </div>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="index.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="shop-hero">
+    <h1>Shop Pet Essentials</h1>
+    <p>Discover toys, treats, and gear your furry friend will love.</p>
+  </section>
+
+  <section class="products-grid">
+    <div class="product-card">
+      <img src="https://www.loyalpetzone.com/wp-content/uploads/2021/10/mint-rubber-ball-for-dogs.jpg" alt="Dog Toy" />
+      <h3>Chew Ball</h3>
+      <p>$8.99</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/6132m6qSorL.jpg" alt="Cat Bed" />
+      <h3>Plush Cat Bed</h3>
+      <p>$24.99</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://www.bigbasket.com/media/uploads/p/l/40279384_1-vama-leathers-nylon-leash-durable-for-large-medium-dogs-1-inch-x-5-ft-midnight-black.jpg" alt="Leash" />
+      <h3>Durable Leash</h3>
+      <p>$12.49</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeaJn2MULcEda-Rl3BfqFmu-ZTBWpd4eg3iA&s alt="Treats" />
+      <h3>Healthy Treats</h3>
+      <p>$6.99</p>
+      <button>Add to Cart</button>
+    </div>
+  </section>
+
+  <footer style="background-color: #000000; color: white; padding: 2rem 1.5rem; margin-top: 4rem;">
+    <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+      
+      <div style="flex: 1 1 250px;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Paws & Whiskers</h3>
+        <p>Your one-stop shop for pet love, care, and essentials.</p>
+      </div>
+  
+      <div style="flex: 1 1 150px;">
+        <h4 style="margin-bottom: 0.5rem;">Quick Links</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Shop</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Adopt</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div style="flex: 1 1 200px;">
+        <h4 style="margin-bottom: 0.5rem;">Contact Us</h4>
+        <p>Email: support@pawswhiskers.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Location: 123 Pet Lane, Furtown</p>
+      </div>
+  
+    </div>
+  
+    <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem;">
+      &copy; 2025 Paws & Whiskers. All rights reserved.
+    </div>
+  </footer>
+  
+
+</body>
+</html>

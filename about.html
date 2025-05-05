@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Paws & Whiskers</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #ffffff, #e0f0ff);
+    }
+
+    /* Navbar (reuse from main) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #3490dc;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-logo a {
+      font-size: 1.8rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .navbar-links li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* Main container */
+    .about-container {
+      max-width: 1200px;
+      margin: 100px auto 50px;
+      padding: 2rem;
+    }
+
+    .about-section {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .about-section h2 {
+      font-size: 2.5rem;
+      color: #3490dc;
+      margin-bottom: 1rem;
+    }
+
+    .about-section p {
+      font-size: 1.2rem;
+      color: #444;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .team-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-member {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 250px;
+    }
+
+    .team-member img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .team-member h4 {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .team-member p {
+      font-size: 1rem;
+      color: #777;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background-color: #f9f9f9;
+      padding: 3rem 1rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial {
+      max-width: 700px;
+      margin: 0 auto;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .testimonial-author {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <a href="index.html">Paws & Whiskers</a>
+    </div>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Page Content -->
+  <div class="about-container">
+
+    <!-- Our Story -->
+    <section class="about-section">
+      <h2>Our Story</h2>
+      <p>
+        Founded in 2020, Paws & Whiskers was born out of love for animals and a desire to provide pet owners with trusted, high-quality products.
+        We believe pets are family, and every wag, purr, and cuddle deserves the best care and comfort.
+      </p>
+    </section>
+
+    <!-- Mission -->
+    <section class="about-section">
+      <h2>Our Mission</h2>
+      <p>
+        Our mission is simple: To create a world where pets are happier, healthier, and stylishly pampered. We handpick every item with your pet’s needs in mind, ensuring safety, quality, and a little bit of fun.
+      </p>
+    </section>
+
+    <!-- Meet the Team -->
+    <section class="about-section">
+      <h2>Meet the Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="https://i.pravatar.cc/100?img=1" alt="Alice - Founder">
+          <h4>BIKASH</h4>
+          <p>Founder & CEO</p>
+        </div>
+        <div class="team-member">
+          <img src="https://i.pravatar.cc/100?img=2" alt="Ben - Product Manager">
+          <h4>BIKASH</h4>
+          <p>Product Manager</p>
+        </div>
+        <div class="team-member">
+          <img src="https://i.pravatar.cc/100?img=3" alt="Clara - Designer">
+          <h4>BIKASH</h4>
+          <p>Creative Designer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="about-section testimonials">
+      <h2>What Pet Parents Say</h2>
+      <div class="testimonial">
+        “Paws & Whiskers has everything I need for my pup! Amazing service and fast delivery.”
+        <div class="testimonial-author">— BIKASH</div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>

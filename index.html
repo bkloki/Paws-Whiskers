@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pet Shop - Hero Section</title>
+
+  <style>
+/* Loading Screen Styles */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensures it stays on top */
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-content img {
+  width: 150px; /* Adjust the size of the dog GIF */
+  animation: running 1s infinite; /* Optional: makes the dog run continuously */
+}
+
+.progress-bar {
+  margin-top: 20px;
+  width: 80%;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
+  transform: perspective(400px) rotateX(45deg); /* Adds perspective for a 3D effect */
+}
+
+.progress {
+  height: 100%;
+  width: 0%; /* Progress will increase with JS */
+  background-color: #3490dc;
+  border-radius: 10px;
+  transition: width 0.1s linear;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow on the progress bar for 3D effect */
+}
+
+/* Optional: Simple animation for the dog GIF */
+@keyframes running {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px); /* Adjust according to the dog's running animation */
+  }
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #ffffff, #e0f0ff);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    .hero-content {
+      margin-bottom: 2rem;
+      margin-top: 200px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+      
+    }
+
+    .hero-image img {
+      width: 700px;
+      border-radius: 1rem;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.8s ease-out;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      color: #333;
+      margin-bottom: 1rem;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content button {
+      padding: 0.8rem 2rem;
+      background-color: #3490dc;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s;
+    }
+
+    .hero-content button:hover {
+      background-color: #2779bd;
+    }
+
+    /* Animation Classes */
+    .fade-in-up {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .fade-in-zoom {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+
+
+    /* Featured Products Section */
+.featured-products {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.featured-products h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.product-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.product-card {
+  width: 250px;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-card p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.product-card button {
+  background-color: #3490dc;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* Call to Action Section */
+.cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #3490dc;
+  color: white;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta button {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  background-color: #fff;
+  color: #3490dc;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Why Pet Accessories Section */
+.why-accessories {
+  position: relative;
+  background-image: url('background-image.jpg'); /* Replace with your background image */
+  background-size: cover;
+  background-position: center;
+  padding: 10px 20px;
+  height: 100vh; /* Full height */
+  color: #fff;
+  overflow: hidden; /* Prevents the parallax effect from spilling */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.why-accessories .content {
+  text-align: center;
+  max-width: 800px;
+
+}
+
+.why-accessories h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  z-index: 10;
+  position: relative;
+  color: #3490dc;
+  box-shadow: 0 0 20px black;
+  text-shadow: 0 0 20px rgb(255, 255, 255);
+}
+
+.why-accessories p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-top: 0;
+  z-index: 10;
+  position: relative;
+  color: #333;
+  font-weight: 800;
+}
+
+/* Parallax Effect on Text */
+@keyframes parallax-text {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.why-accessories h2, .why-accessories p {
+  animation: parallax-text 3s ease-out infinite;
+}
+
+/* Optional 2D effects on background */
+.why-accessories::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgb(0, 0, 0); Dark overlay for better text contrast */
+  background-image: url('./bgpet.avif');
+  z-index: 1;
+}
+.why-accessories{
+    color: black;
+    text-shadow: 0 0 8px rgb(255, 255, 255);
+
+}
+
+
+/* Message Section */
+.message-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #fff;
+  color: #333;
+}
+
+.message-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.message-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 0.5rem;
+}
+
+.input-group textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+button {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2779bd;
+}
+
+
+/* Animation Class */
+.fade-in-up {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #3490dc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-logo a {
+  font-size: 1.8rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navbar-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #fff;
+}
+
+/* Hamburger Menu for Mobile */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.navbar-toggle span {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #3490dc;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+}
+
+
+  </style>
+
+</head>
+
+<body>
+
+ <!-- Loading Screen -->
+<div id="loading-screen">
+    <div class="loading-content">
+      <img src="./1.gif" alt="Loading..."> <!-- Replace with your dog running GIF file -->
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="navbar-logo">
+      <a href="#">Paws & Whiskers</a> <!-- Link to homepage -->
+    </div>
+    <ul class="navbar-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="./shop.html">Shop</a></li>
+      <li><a href="./about.html" >About Us</a></li>
+      <li><a href="#contact" class="btn">Contact</a></li>
+    </ul>
+    <div class="navbar-toggle" id="navbar-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  
+  
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Paws & Whiskers</h1>
+      <p>Your one-stop shop for happy pets!</p>
+      <button>Shop Now</button>
+    </div>
+    <div class="hero-image">
+      <img src="./2.gif" alt="Cute Dog">
+    </div>
+  </section>
+
+
+
+  <!-- Featured Products Section -->
+<section class="featured-products">
+    <h2>Featured Products</h2>
+    <div class="product-cards">
+      <div class="product-card">
+        <img src="./3.jpg" alt="Product 1">
+        <p>Product Name</p>
+        <p>$19.99</p>
+      </div>
+      <div class="product-card">
+        <img src="./3.1.jpg" alt="Product 2">
+        <p>Product Name</p>
+        <p>$29.99</p>
+      </div>
+      <div class="product-card">
+        <img src="./3.2.jpg" alt="Product 3">
+        <p>Product Name</p>
+        <p>$39.99</p>
+      </div>
+    </div>
+    <button>Shop All Products</button>
+  </section>
+  
+
+
+  <!-- Call to Action Section -->
+<section class="cta">
+    <h2>Ready to Shop for Your Pet?</h2>
+    <p>Explore our range of pet products and give your pet the best care possible.</p>
+    <button>Start Shopping</button>
+  </section>
+
+
+
+  <!-- Why Pet Accessories Section -->
+<section class="why-accessories">
+    <div class="content">
+      <h2>Why Pet Accessories are Essential</h2>
+      <p>
+        Pet accessories are more than just cute additions—they can improve your pet’s health, comfort, and happiness.
+        From collars to beds, each accessory plays a crucial role in the well-being of your furry friend.
+      </p>
+    </div>
+  </section>
+  
+
+
+  <!-- Message Section -->
+<section class="message-section" id="contact">
+    <h2>Got Questions?</h2>
+    <p>We'd love to hear from you! Drop us a message below and we’ll get back to you as soon as possible.</p>
+    <form action="#" method="post">
+      <div class="input-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+      </div>
+      <div class="input-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+      </div>
+      <div class="input-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" required placeholder="Enter your message here"></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  
+  
+
+  <script>
+    // Run animations immediately when page loads
+    window.addEventListener('load', () => {
+      const heroContent = document.querySelector('.hero-content');
+      const heroImage = document.querySelector('.hero-image img');
+      
+      heroContent.classList.add('fade-in-up');
+      heroImage.classList.add('fade-in-zoom');
+    });
+  </script>
+
+
+<script>
+    // JavaScript for Parallax Scrolling Effect
+window.addEventListener('scroll', () => {
+  const section = document.querySelector('.why-accessories');
+  const offset = window.pageYOffset;
+
+  // Adjust the background position based on scroll
+  section.style.backgroundPosition = `center ${offset * 0.5}px`;
+});
+
+</script>
+
+
+
+<script>
+    // Add scroll-triggered fade-in for Message Section
+window.addEventListener('scroll', () => {
+  const messageSection = document.querySelector('.message-section');
+  const triggerBottom = window.innerHeight / 5 * 4;
+
+  const messageSectionTop = messageSection.getBoundingClientRect().top;
+
+  if (messageSectionTop < triggerBottom) {
+    messageSection.classList.add('fade-in-up');
+  }
+});
+
+</script>
+
+
+
+<script>
+    // JavaScript for Loading Screen with Progress Bar
+window.addEventListener('load', () => {
+  // Hide the loading screen once everything has loaded
+  const loadingScreen = document.getElementById('loading-screen');
+  loadingScreen.style.display = 'none';
+});
+
+// Simulating loading progress (you can replace this with actual loading logic if needed)
+let progress = 0;
+const progressBar = document.querySelector('.progress');
+
+const interval = setInterval(() => {
+  progress += 2; // Increase the progress
+  progressBar.style.width = `${progress}%`;
+
+  if (progress >= 100) {
+    clearInterval(interval); // Stop when it's 100%
+    setTimeout(() => {
+      document.getElementById('loading-screen').style.display = 'none'; // Hide loading screen after completion
+    }, 5000); // Hide with a slight delay for smooth transition
+  }
+}, 100); // Adjust this to control the loading speed
+
+</script>
+
+
+</body>
+</html>
